@@ -1,4 +1,11 @@
 Rails.application.configure do
+
+
+  config.logger= Logger.new('log/development.log','daily')
+  config.custom_logger= Logger.new('log/development.log','weekly')
+  config.logger.formatter = proc {|severity,timestamp,progname,message|
+                                        "#{timestamp} :#{severity}:#{message}\n"
+                                   }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
