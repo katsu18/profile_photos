@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
   
+  def set_locale
+    I18n.locale = current_user&.locale || :ja #ログインしていなければ日本語
+  end
+
+
 end
