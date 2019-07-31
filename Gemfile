@@ -70,3 +70,5 @@ gem "binding_of_caller"
 gem 'pry-byebug'
 gem 'rails_autolink'
 gem 'ransack'
+gem 'kaminari'
+gem 'sidekiq'
