@@ -68,7 +68,8 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name,:description, :image)
+
+    params.require(:task).permit(:name,:description, images: [])
   end
 
   def set_task
@@ -78,3 +79,16 @@ class TasksController < ApplicationController
 
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

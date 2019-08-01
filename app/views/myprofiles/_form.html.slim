@@ -1,0 +1,19 @@
+- if myprofile.errors.present?
+  ul#error_explanation
+    -myprofile.errors.full_messages.each do |message|
+      li = message
+
+= form_with model: myprofile,local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'myprofile_name'
+  .form-group
+    = f.label :description
+    = f.text_area :description, row: 5, class: 'form-control', id: 'myprofile_description'
+  .form_group
+    = f.label :images
+    = f.file_field :images, multiple: true,class: 'form-control'
+    
+  = f.submit nil, class: 'btn btn-primary' 
+  
+  

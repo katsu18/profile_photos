@@ -1,0 +1,17 @@
+.conteier
+  .row.m-2
+    - if current_user.admin?
+      .nav-item = link_to '編集', edit_myprofile_path,class: 'nav-link'
+  .row.m-2
+    .col-lg-6
+      .row = image_tag @myprofile.images.sample, class:"rounded mx-auto　 img-fluid" if @myprofile.images.attached?  
+    .col-lg-6
+      .row.h1 = @myprofile.name
+      .row   =  @myprofile.description  
+
+  .row.m-1
+    - @myprofile.images.each do |v|
+      .col-md-4
+        .row.m-1 = v.name 
+        .row.m-1 = image_tag v, class:"rounded mx-auto img-fluid"
+        .row.m-1 = link_to 'Remove', myprofile_delete_image_attachment_path(v.signed_id),method: :delete,data: { confirm: 'Are you sure?' }

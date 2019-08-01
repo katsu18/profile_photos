@@ -14,8 +14,8 @@ table.table.table-hover
       th = Task.human_attribute_name(:description)
       th = auto_link(simple_format(h(@task.description),{},sanitize: false,wrapper_tag:"div"))
     tr
-      th = Task.human_attribute_name(:image)
-      td = image_tag @task.image,class:"rounded mx-auto d-block img-fluid" if @task.image.attached?  
+      th = Task.human_attribute_name(:images)
+      td = image_tag @task.images,class:"rounded mx-auto d-block img-fluid" if @task.images.attached?  
     tr
       th = Task.human_attribute_name(:created_at)
       th = @task.created_at
