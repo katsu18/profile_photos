@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     resources :users
   end
   root to: 'myprofiles#index' 
-  resources :myprofiles do
-    delete :delete_image_attachment
-  end
+  resources :myprofiles 
+    resources :photos
+  
   resources :tasks do
     post :confirm, action: :confirm_new, on: :new
     post :import, on: :collection

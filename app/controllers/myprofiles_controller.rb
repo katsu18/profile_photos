@@ -3,8 +3,10 @@ class MyprofilesController < ApplicationController
 
   def index
     @myprofiles = Myprofile.all
-    @randam = @myprofiles.sample
-
+    @randams = @myprofiles.sample
+    if @randams.present?
+    @randam  = @randams.photos.sample
+    end
   end
 
   def create
@@ -36,11 +38,12 @@ class MyprofilesController < ApplicationController
     @myprofile = Myprofile.new
   end
 
-  def delete_image_attachment
-    # @image = ActiveStorage::Blob.find_signed(params[:signed_id])
-    # @image.purge
-    # redirect_to myprofiles_path
-  end
+  # def delete_image_attachment
+  #   @image = ActiveStorage::Blob.find_signed(params[:myprofile_id])
+  #   @image.purge_later
+  #   binding.pry
+  #   redirect_to myprofiles_path
+  # end
 
   def update
     @myprofile.update!(task_params)

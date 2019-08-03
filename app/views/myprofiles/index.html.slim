@@ -5,10 +5,10 @@
   .row.m-2
     .col-lg-12
       - if @randam.present?
-        .row = @randam.name
-        .row = image_tag @randam.images.sample,class:"rounded mx-auto d-block img-fluid" if @randam.images.attached?  
-  .row.m-1
+        .row = @randams.name
+        .col = image_tag @randam.image.to_s,class:"rounded mx-auto my-auto d-block img-fluid" if @randam.image.present?
+  .row.m-1.row-eq-height
     - @myprofiles.each do |myprofile|
       .col-md-4
         .row.m-1  = link_to myprofile.name, myprofile_path(myprofile)
-        .row.m-1  = image_tag myprofile.images.sample,class:"rounded mx-auto d-block img-fluid" if myprofile.images.attached?  
+        .col.m-1  = image_tag myprofile.photos.sample.image.to_s,class:"rounded mx-auto my-auto d-block img-fluid" if myprofile.photos.present?

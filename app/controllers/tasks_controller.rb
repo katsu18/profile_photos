@@ -1,5 +1,9 @@
 class TasksController < ApplicationController
 
+  before_action :require_admin
+
+
+
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
 
@@ -76,7 +80,9 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
   end
 
-
+  def require_admin
+    redirect_to root_url unless current_user.admin?
+  end
 
 end
 
