@@ -33,7 +33,6 @@ class TasksController < ApplicationController
       render :new
       return
     end
-    
     if @task.save
     TaskMailer.creation_email(@task).deliver_now
     SampleJob.set(wait: 5.seconds).perform_later
@@ -72,7 +71,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-
     params.require(:task).permit(:name,:description, images: [])
   end
 
