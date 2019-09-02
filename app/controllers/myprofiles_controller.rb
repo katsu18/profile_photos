@@ -20,7 +20,7 @@ class MyprofilesController < ApplicationController
     #TaskMailer.creation_email(@myprofile).deliver_now
     #SampleJob.set(wait: 5.seconds).perform_later
     #logger.debug "task: #{@task.attributes.inspect}"#コンソールにデバック載せるお
-    redirect_to myprofiles_path, notice: "タスク「#{@myprofile.name}を登録しました。」"
+    redirect_to myprofiles_path, notice: "タグ「#{@myprofile.name}を登録しました。」"
     else
       render :new
     end
@@ -47,7 +47,7 @@ class MyprofilesController < ApplicationController
 
   def update
     @myprofile.update!(task_params)
-    redirect_to myprofiles_path, notice: "タスク「#{@myprofile.name}を更新しました。」"
+    redirect_to myprofiles_path, notice: "タグ「#{@myprofile.name}を更新しました。」"
   end
   private
 
