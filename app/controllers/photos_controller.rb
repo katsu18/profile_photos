@@ -37,6 +37,7 @@ class PhotosController < ApplicationController
   def photo_params
 
     params.require(:photo).permit(:content, :image,{ :myprofile_ids => [] })
+
   end
 
   def set_photo
