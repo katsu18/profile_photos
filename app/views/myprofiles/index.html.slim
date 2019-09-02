@@ -1,0 +1,14 @@
+.conteier
+  .row.m-2
+    - if current_user.admin?
+      .nav-item = link_to '新規作成', new_myprofile_path,class: 'nav-link'
+  .row.m-2
+    .col-lg-12
+      - if @randam.present?
+        .row = @randams.name
+        .col = image_tag @randam.image.to_s,class:"rounded mx-auto my-auto d-block img-fluid" if @randam.image.present?
+  .row.m-1.row-eq-height
+    - @myprofiles.each do |myprofile|
+      .col-md-4
+        .row.m-1  = link_to myprofile.name, myprofile_path(myprofile)
+        .col.m-1  = image_tag myprofile.photos.sample.image.to_s,class:"rounded mx-auto my-auto d-block img-fluid" if myprofile.photos.present?

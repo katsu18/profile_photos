@@ -1,0 +1,19 @@
+/ - if photo.errors.present?
+/   ul#error_explanation
+/     -photo.errors.full_messages.each do |message|
+/       li = message
+
+= form_with model: photo,local: true do |f|
+  .form-group
+    = f.label :content
+    = f.text_field :content, class: 'form-control', id: 'photo_name'
+
+  .form_group
+    = f.label :image
+    = f.file_field :image,class: 'form-control'
+
+  .form_group
+   = f.collection_check_boxes :myprofile_ids, Myprofile.all, :id, :name
+  = f.submit nil, class: 'btn btn-primary' 
+  
+  
