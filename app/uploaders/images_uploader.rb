@@ -5,7 +5,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [1050, 700]
   # Choose what kind of storage to use for this uploader:
   storage :file
-  # storage :fog
+   storage :fog
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

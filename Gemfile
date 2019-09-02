@@ -73,3 +73,11 @@ gem 'sidekiq'
 gem 'mini_magick'
 gem "carrierwave"
 gem "sassc", '2.0.1'
+gem 'fog-aws'
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+end
